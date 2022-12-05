@@ -1,0 +1,103 @@
+#include <iostream>
+
+using namespace std;
+
+// Zadaca 1-A
+void fillArray(int n, int arrayOfNumbers[]){
+    int number;
+
+   for(int i=0;i<n;i++){
+    cin>>number;
+
+    arrayOfNumbers[i]=number;
+   }
+}
+
+// Zadaca 1-B
+void printArray(int n, int arrayOfNumbers[]) {
+
+  cout << "Array: ";
+  for (int i = 0; i < n; i++) {
+    cout << arrayOfNumbers[i] << " ";
+  }
+
+  cout << endl;
+}
+
+
+// Zadaca 1-C
+void findMax(int n, int arrayOfNumbers[]) {
+
+  int maxValue = arrayOfNumbers[0];
+  int maxIndex = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (arrayOfNumbers[i] > maxValue) {
+      maxIndex = i;
+      maxValue = arrayOfNumbers[i];
+    }
+  }
+
+  cout << "The value of max element is " << maxValue << endl;
+  cout << "The index of max element is " << maxIndex << endl;
+}
+
+// Zadaca 1-D
+void findMin(int n, int arrayOfNumbers[]) {
+
+  int minValue = arrayOfNumbers[0];
+  int minIndex = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (arrayOfNumbers[i] < minValue) {
+      minIndex = i;
+      minValue = arrayOfNumbers[i];
+    }
+  }
+
+  cout << "The value of min element is " << minValue << endl;
+  cout << "The index of min element is " << minIndex << endl;
+}
+
+// Zadaca 1-E
+int sum(int n, int arrayOfNumbers[]) {
+
+  int sumOfElements = 0;
+
+  for (int i = 0; i < n; i++) {
+    sumOfElements = sumOfElements + arrayOfNumbers[i];
+  }
+
+  return sumOfElements;
+}
+
+// Zadaca 1-F
+double average(int n, int arrayOfNumbers[]) {
+
+  int sumOfElements = sum(n, arrayOfNumbers);
+
+  return sumOfElements * 1.0 / n;
+}
+
+int main() {
+  int arrayOfNumbers[100];
+
+  int n;
+
+  cout << "Insert the number of elements in the array." << endl;
+
+  cin >> n;
+
+  cout << "Insert the elements of the array." << endl;
+
+  fillArray(n, arrayOfNumbers);
+  printArray(n, arrayOfNumbers);
+  findMax(n, arrayOfNumbers);
+  findMin(n, arrayOfNumbers);
+
+  cout << "The sum of the elements is: " << sum(n, arrayOfNumbers) << endl;
+
+  cout << "The average number is: " << average(n, arrayOfNumbers) << endl;
+
+  return 0;
+}
