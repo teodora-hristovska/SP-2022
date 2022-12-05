@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+void fillArray(int n, int arrayOfNumbers[]) {
+  int number;
+
+  for (int i = 0; i < n; i++) {
+    cin >> number;
+
+    arrayOfNumbers[i] = number;
+  }
+}
+
+void printArray(int n, int arrayOfNumbers[]) {
+
+  cout << "Array: ";
+  for (int i = 0; i < n; i++) {
+    cout << arrayOfNumbers[i] << " ";
+  }
+  cout << endl;
+}
+
+void transformArray(int n, int arrayOfNumbers[]) {
+
+  for (int i = 0; i < n; i++) {
+
+    int transformedElement = arrayOfNumbers[i] % 10;
+    arrayOfNumbers[i] = transformedElement;
+  }
+}
+
+int main() {
+  int arrayOfNumbers[100];
+
+  int n, number;
+
+  cout << "Insert the number of elements in the array" << endl;
+
+  cin >> n;
+
+  cout << "Insert the elements" << endl;
+
+  fillArray(n, arrayOfNumbers);
+
+  printArray(n, arrayOfNumbers);
+
+  transformArray(n, arrayOfNumbers);
+
+  printArray(n, arrayOfNumbers);
+
+  return 0;
+}
