@@ -1,0 +1,88 @@
+#include <iostream>
+
+using namespace std;
+
+void fillArray(int n, int arrayOfNumbers[]) {
+  int number;
+
+  for (int i = 0; i < n; i++) {
+    cin >> number;
+
+    arrayOfNumbers[i] = number;
+  }
+}
+
+void printArray(int n, int arrayOfNumbers[]) {
+
+  cout << "Array: ";
+
+  for (int i = 0; i < n; i++) {
+    cout << arrayOfNumbers[i] << " ";
+  }
+
+  cout << endl;
+}
+
+int findMax(int n, int arrayOfNumbers[]) {
+  // Returns the position of the element with max value
+
+  int maxValue = arrayOfNumbers[0];
+  int maxIndex = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (arrayOfNumbers[i] > maxValue) {
+      maxIndex = i;
+      maxValue = arrayOfNumbers[i];
+    }
+  }
+
+  return maxIndex;
+}
+
+int findMin(int n, int arrayOfNumbers[]) {
+  // Returns the position of the element with min value
+
+  int minValue = arrayOfNumbers[0];
+  int minIndex = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (arrayOfNumbers[i] < minValue) {
+      minIndex = i;
+      minValue = arrayOfNumbers[i];
+    }
+  }
+
+  return minIndex;
+}
+
+void swapMaximumAndMinimum(int n, int arrayOfNumbers[]) {
+
+  int minIndex = findMin(n, arrayOfNumbers);
+  int maxIndex = findMax(n, arrayOfNumbers);
+
+  int temp = arrayOfNumbers[minIndex];
+  arrayOfNumbers[minIndex] = arrayOfNumbers[maxIndex];
+  arrayOfNumbers[maxIndex] = temp;
+}
+
+int main() {
+  int arrayOfNumbers[100];
+
+  int n, number;
+
+  cout << "Insert the number of elements of the array" << endl;
+
+  cin >> n;
+
+  cout << "Insert the elements of the array" << endl;
+
+  fillArray(n, arrayOfNumbers);
+
+  printArray(n, arrayOfNumbers);
+
+  swapMaximumAndMinimum(n, arrayOfNumbers);
+
+  printArray(n, arrayOfNumbers);
+
+  return 0;
+}
