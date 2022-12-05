@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+void fillArray(int n, int arrayOfNumbers[]) {
+  int number;
+
+  for (int i = 0; i < n; i++) {
+    cin >> number;
+
+    arrayOfNumbers[i] = number;
+  }
+}
+
+void printArray(int n, int arrayOfNumbers[]) {
+
+  cout << "Array: ";
+  for (int i = 0; i < n; i++) {
+    cout << arrayOfNumbers[i] << " ";
+  }
+  cout << endl;
+}
+
+bool isArrayContainingNumber(int n, int arrayOfNumbers[], int number) {
+
+  for (int i = 0; i < n; i++) {
+    if (arrayOfNumbers[i] == number) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+int main() {
+  int arrayOfNumbers[100];
+  int arrayWithoutDuplicates[100];
+
+  int n;
+  int countOfNonDuplicates = 0; // contains the current size of the arrayWithoutDuplicates
+
+  cout << "Insert the number of elements in the array" << endl;
+
+  cin >> n;
+
+  cout << "Insert the elements of the array" << endl;
+
+  fillArray(n, arrayOfNumbers);
+
+  printArray(n, arrayOfNumbers);
+
+  for (int i = 0; i < n; i++) {
+
+    bool numberExist = isArrayContainingNumber(countOfNonDuplicates, arrayWithoutDuplicates, arrayOfNumbers[i]);
+
+    if (!numberExist) {
+      arrayWithoutDuplicates[countOfNonDuplicates] = arrayOfNumbers[i];
+      countOfNonDuplicates++;
+    }
+  }
+
+  printArray(countOfNonDuplicates, arrayWithoutDuplicates);
+
+  return 0;
+}
