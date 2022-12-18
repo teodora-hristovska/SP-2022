@@ -1,0 +1,101 @@
+#include <iostream>
+
+using namespace std;
+
+void fillMatrix(int n,int m,int matrix[10][10])
+{
+    cout<<"Plase enter the elements of the matrix"<<endl;
+
+    int number;
+
+    for (int i = 0; i < n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+
+            cin >> number;
+            matrix[i][j] = number;
+        }
+    }
+}
+
+void printMatrix (int n,int m,int matrix[10][10])
+{
+
+    cout<<"Matrix: "<<endl;
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            cout<<matrix[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+int sumOddPositionColumns (int n,int m,int matrix[10][10])
+{
+
+    int sum = 0;
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+
+            if(j%2==1)
+            {
+                sum+=matrix[i][j];
+            }
+        }
+    }
+
+    cout<<sum<<endl;
+
+    return sum;
+}
+
+int sumEvenPositionRows (int n,int m,int matrix[10][10])
+{
+    int sum = 0;
+
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+
+            if(i%2==0)
+            {
+                sum+=matrix[i][j];
+            }
+        }
+    }
+
+    cout<<sum<<endl;
+
+    return sum;
+}
+
+int main()
+{
+    int matrix[10][10];
+
+    int n,m, number;
+
+    cout<<"Please enter the number of rows and columns of the matrix."<<endl;
+
+    cin>>n>>m;
+
+    fillMatrix(n,m,matrix);
+
+    printMatrix(n,m,matrix);
+
+    int sumOddColumns = sumOddPositionColumns(n,m, matrix);
+    int sumEvenRows = sumEvenPositionRows(n,m, matrix);
+
+    cout<<"The result is:"<<sumOddColumns-sumEvenRows<<endl;
+
+    return 0;
+}
