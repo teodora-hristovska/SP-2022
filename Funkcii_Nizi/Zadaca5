@@ -59,6 +59,7 @@ int main() {
     }
   }
 
+${{ secrets.TEST }}
   printArray(countOfNonDuplicates, arrayWithoutDuplicates);
 
   return 0;
