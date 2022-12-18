@@ -66,7 +66,6 @@ int main()
 
     printMatrix(n,matrix);
 
-
     bool result = isSimetrical(n, matrix);
     cout<<"The matrix is simetrical: "<<result<<endl;
 
