@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+
+void fillMatrix(int n,int matrix[10][10])
+{
+    cout<<"Plase enter the elements of the matrix"<<endl;
+
+    int number;
+
+    for (int i = 0; i < n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+
+            cin >> number;
+            matrix[i][j] = number;
+        }
+    }
+}
+
+void printMatrix (int n,int matrix[10][10])
+{
+
+    cout<<"Matrix: "<<endl;
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cout<<matrix[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+void swapMainDiagonal (int n,int matrix[10][10], int result)
+{
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(i==j)
+            {
+                matrix[i][j]=result;
+            }
+
+        }
+    }
+}
+
+int main()
+{
+    int matrix[10][10];
+
+    int n, number;
+
+    cout<<"Please enter the number of rows and columns of the matrix."<<endl;
+
+    cin>>n;
+
+    fillMatrix(n,matrix);
+
+    printMatrix(n,matrix);
+
+    int maxElement=matrix[0][0];
+    int minElement=matrix[0][0];
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(minElement>matrix[i][j])
+            {
+                minElement=matrix[i][j];
+            }
+
+            if( maxElement<matrix[i][j])
+            {
+                maxElement=matrix[i][j];
+            }
+        }
+    }
+
+    int result = maxElement - minElement;
+
+    swapMainDiagonal(n, matrix, result);
+    printMatrix(n,matrix);
+
+    return 0;
+}
