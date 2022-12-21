@@ -57,7 +57,7 @@ char checkMainDiagonal(char ticTacToe[3][3])
     return mainDiagonalChar;
 }
 
-char checkSecondaryiagonal(char ticTacToe[3][3])
+char checkSecondaryDiagonal(char ticTacToe[3][3])
 {
 
     /* if the winner doesn't exist return -
@@ -114,7 +114,7 @@ char checkWinner(char tikTakToe[3][3])
        if the winner exist return the winner (x or o) */
 
     char mainDiagonalWinner = checkMainDiagonal(tikTakToe);
-    char secondaryDiagonalWinner = checkSecondaryiagonal(tikTakToe);
+    char secondaryDiagonalWinner = checkSecondaryDiagonal(tikTakToe);
     char rowWinner = checkRows(tikTakToe);
     char columnWinner = checkColumns(tikTakToe);
 
